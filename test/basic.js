@@ -6,6 +6,7 @@ describe('basic test', function () {
     app.boot(function (err) {
       if (err) return done(err);
       app.silence();
+      app.conf.set('redis:prefix', 'cantina-cron-test-' + Date.now());
       require('../');
       app.start(done);
     });
@@ -28,4 +29,21 @@ describe('basic test', function () {
     assert.equal(job.title, 'Test One');
   });
 
+  it('can run a job (takes two minutes)', function (done) {
+    this.timeout(130 * 1000);
+
+    app.cron.schedule({
+      title: 'Test Two',
+      cronTime: '* * * * *',
+      queue: 'test:two',
+      payload: {test: 'two'}
+    });
+
+    app.amino.process('test:two', function (payload, cb) {
+      assert.equal(payload.test, 'two');
+      done();
+    });
+
+    app.cron.start();
+  });
 });
