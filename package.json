@@ -1,19 +1,27 @@
 {
   "name": "cantina-cron",
-  "version": "3.0.0",
-  "private": true,
+  "version": "4.0.0-dev",
+  "publishConfig": {
+    "registry": "https://npm-registry.terraeclipse.com"
+  },
   "description": "An amino/redis-powered in-app crontab.",
   "main": "cantina-cron.js",
   "dependencies": {
     "cron": "~1.0.1",
     "timebucket": "~0.3.1"
   },
+  "peerDependencies": {
+    "cantina": "~4.0.0",
+    "cantina-redis": "~4.0.0",
+    "cantina-amino": "~4.0.0",
+    "cantina-queue": "~4.0.0"
+  },
   "devDependencies": {
     "mocha": "~1.12.0",
-    "cantina": "cantina/cantina#3.x",
-    "cantina-redis": "cantina/cantina-redis#3.x",
-    "cantina-amino": "cantina/cantina-amino#3.x",
-    "cantina-queue": "cantina/cantina-queue#3.x"
+    "cantina": "~4.0.0",
+    "cantina-redis": "~4.0.0",
+    "cantina-amino": "~4.0.0",
+    "cantina-queue": "~4.0.0"
   },
   "scripts": {
     "test": "make test"
@@ -28,7 +36,6 @@
     "cron"
   ],
   "author": "Brian Link <cpsubrian@gmail.com>",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cpsubrian/cantina-cron/issues"
   }
