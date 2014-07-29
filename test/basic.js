@@ -2,12 +2,12 @@ describe('basic test', function () {
   var app;
 
   before(function (done) {
-    app = require('cantina');
+    app = require('cantina').createApp();
     app.boot(function (err) {
       if (err) return done(err);
       app.silence();
       app.conf.set('redis:prefix', 'cantina-cron-test-' + Date.now());
-      require('../');
+      app.require('../');
       app.start(done);
     });
   });
