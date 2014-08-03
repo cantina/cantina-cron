@@ -1,9 +1,6 @@
 {
   "name": "cantina-cron",
   "version": "4.1.0",
-  "publishConfig": {
-    "registry": "https://npm-registry.terraeclipse.com"
-  },
   "description": "An amino/redis-powered in-app crontab.",
   "main": "cantina-cron.js",
   "dependencies": {
@@ -30,6 +27,12 @@
     "type": "git",
     "url": "git://github.com/cpsubrian/cantina-cron.git"
   },
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  ],
   "homepage": "https://github.com/cpsubrian/cantina-cron",
   "keywords": [
     "cantina",
