@@ -4,7 +4,7 @@
   "description": "An amino/redis-powered in-app crontab.",
   "main": "cantina-cron.js",
   "dependencies": {
-    "cron": "~1.0.1",
+    "cron": "1.0.1",
     "timebucket": "~0.3.1"
   },
   "peerDependencies": {
