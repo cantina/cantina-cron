@@ -86,8 +86,14 @@ JobSpec.prototype.onTick = function () {
 JobSpec.prototype.tryRun = function () {
   var job = this;
 
+  // At some point cron's CronTime became a moment wrapper?
+  var nextTime = job.cronTime.sendAt();
+  if (typeof nextTime.toDate === 'function') {
+    nextTime = nextTime.toDate()
+  }
+
   // CronTime#sendAt() returns the Date of the *next* runtime
-  var sendAt = timebucket(job.cronTime.sendAt()).resize('1s').toMilliseconds() // get milliseconds, though
+  var sendAt = timebucket(nextTime).resize('1s').toMilliseconds() // get milliseconds, though
     , key = app.redisKey('cron', job.queue, sendAt);
 
   // If we can set the lock for the next runtime, then we in control of
