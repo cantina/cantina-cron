@@ -1,6 +1,6 @@
 {
   "name": "cantina-cron",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "private": true,
   "description": "An amino/redis-powered in-app crontab.",
   "main": "cantina-cron.js",
